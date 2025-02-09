@@ -57,9 +57,5 @@ export default ({ env }) => ({
             ignoreFields: ['createdBy', 'updatedBy']
         }
     },
-    folders: {
-        enabled: true,
-        resolve: './src/plugins/folders'
-    }
     // ...
 });
