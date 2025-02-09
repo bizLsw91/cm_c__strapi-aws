@@ -56,6 +56,10 @@ export default ({ env }) => ({
             maxDepth: 5,
             ignoreFields: ['createdBy', 'updatedBy']
         }
+    },
+    folders: {
+        enabled: true,
+        resolve: './src/plugins/folders'
     }
     // ...
 });
