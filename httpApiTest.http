@@ -1,0 +1,43 @@
+### 1. 사용자 등록
+POST {{domain}}/api/auth/local/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "email": "sp91lsu@gmail.com",
+  "password": "password123"
+}
+
+### 2. 로그인
+POST {{domain}}/api/auth/local
+Content-Type: application/json
+
+{
+  "identifier": "sp91lsu@gmail.com",
+  "password": "password123"
+}
+
+### get users
+GET {{domain}}/api/users
+
+### email 중복검사
+GET {{domain}}/api/users?filters[email][$eq]=sp91lsu@gmail.com
+
+
+### 4. get portfolios
+GET {{domain}}/api/portfolios?pLevel=3
+### 4. get portfolios en
+GET {{domain}}/api/portfolios?locale=en
+
+### 4. pw update
+POST {{domain}}/api/auth/pw-update
+
+### 5. sendEmailVerification
+POST {{domain}}/api/sign/verifyEmail
+Content-Type: application/json
+
+{
+  "email": "hd98lsu@naver.com",
+  "password": "qwer1234@"
+}
+

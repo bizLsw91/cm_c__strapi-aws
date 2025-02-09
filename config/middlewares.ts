@@ -1,8 +1,39 @@
 export default [
   'strapi::logger',
   'strapi::errors',
-  'strapi::security',
-  'strapi::cors',
+  {
+    name: "strapi::security",
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          "connect-src": ["'self'", "https:"],
+          "img-src": [
+            "'self'",
+            "data:",
+            "blob:",
+            "storage.googleapis.com",
+            "dl.airtable.com",
+          ],
+          "media-src": [
+            "'self'",
+            "data:",
+            "blob:",
+            "storage.googleapis.com",
+            "dl.airtable.com",
+          ],
+          upgradeInsecureRequests: null,
+        },
+      },
+    },
+  },
+  {
+    name: 'strapi::cors',
+    config: {
+      origin: ['http://localhost:8598','http://127.0.0.1:8598', 'https://cmc-renewal.vercel.app'],
+      credentials: true  // ✅ 쿠키 전송 허용
+    },
+  },
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',

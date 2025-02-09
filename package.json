@@ -6,7 +6,7 @@
   "scripts": {
     "build": "strapi build",
     "deploy": "strapi deploy",
-    "develop": "strapi develop",
+    "dev": "strapi develop",
     "seed:example": "node ./scripts/seed.js",
     "start": "strapi start",
     "strapi": "strapi"
@@ -14,13 +14,19 @@
   "dependencies": {
     "@strapi/plugin-cloud": "5.9.0",
     "@strapi/plugin-users-permissions": "5.9.0",
+    "@strapi/provider-email-nodemailer": "^5.9.0",
     "@strapi/strapi": "5.9.0",
     "fs-extra": "^10.0.0",
+    "knex": "^3.1.0",
     "mime-types": "^2.1.27",
-    "mysql2": "3.9.8",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.8",
+    "nodemailer": "^6.10.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "^6.0.0",
+    "strapi-provider-firebase-storage": "^1.0.4",
+    "strapi-v5-plugin-populate-deep": "^4.0.4",
     "styled-components": "^6.0.0"
   },
   "devDependencies": {

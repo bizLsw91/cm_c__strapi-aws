@@ -14,4 +14,7 @@ export default ({ env }) => ({
     nps: env.bool('FLAG_NPS', true),
     promoteEE: env.bool('FLAG_PROMOTE_EE', true),
   },
+  adminUrl: {
+    domain: env('PUBLIC_URL') ? env('PUBLIC_URL') : 'localhost'+env('PORT')
+  }
 });
