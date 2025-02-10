@@ -38,15 +38,35 @@ Content-Type: application/json
 }
 
 ### post folder
-POST {{domain}}/upload/folders
+POST {{domain}}/admin/upload/folders
 Content-Type: application/json
 
 {
   "name": "abc",
-  "parent": "rrr"
+  "parent": null
 }
+### get files
+GET {{domain}}/upload/files
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzM5MTYyMDE4LCJleHAiOjE3NDE3NTQwMTh9.GN_jXoAO1D292NYd2cu8Yphk54POrUuYgXZnVVDnW0g
 
+### get folder 1
+GET {{domain}}/upload/folders?filters[$and][0][parent][id][$null]=true
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzM5MTYyMDE4LCJleHAiOjE3NDE3NTQwMTh9.GN_jXoAO1D292NYd2cu8Yphk54POrUuYgXZnVVDnW0g
 
+### get folder 2
+GET {{domain}}/upload/folders?filters[$and][0][parent][id]=13
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzM5MTYyMDE4LCJleHAiOjE3NDE3NTQwMTh9.GN_jXoAO1D292NYd2cu8Yphk54POrUuYgXZnVVDnW0g
 
+### get folder 3
+GET {{domain}}/upload/folders?filters[$and][0][parent][id]=129
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzM5MTYyMDE4LCJleHAiOjE3NDE3NTQwMTh9.GN_jXoAO1D292NYd2cu8Yphk54POrUuYgXZnVVDnW0g
 
+### get file
+GET {{domain}}/upload/files?folder=16
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzM5MTYyMDE4LCJleHAiOjE3NDE3NTQwMTh9.GN_jXoAO1D292NYd2cu8Yphk54POrUuYgXZnVVDnW0g
 

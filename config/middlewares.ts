@@ -30,7 +30,7 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['http://localhost:8598','http://127.0.0.1:8598', 'https://cmc-renewal.vercel.app', 'https://221.168.205.41'],
+      origin: ['http://localhost:8598','http://127.0.0.1:8598', 'https://cmc-renewal.vercel.app', 'https://storage.googleapis.com'],
       credentials: true  // ✅ 쿠키 전송 허용
     },
   },
