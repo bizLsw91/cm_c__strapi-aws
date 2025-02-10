@@ -37,5 +37,16 @@ Content-Type: application/json
   "password": "password123"
 }
 
+### post folder
+POST {{domain}}/upload/folders
+Content-Type: application/json
+
+{
+  "name": "abc",
+  "parent": "rrr"
+}
+
+
+
 
 
