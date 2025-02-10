@@ -16,5 +16,8 @@ export default ({ env }) => ({
   },
   adminUrl: {
     domain: env('PUBLIC_URL') ? env('PUBLIC_URL') : 'localhost'+env('PORT')
+  },
+  preview: {
+    enabled: false, // false로 설정 시 Preview 기능 비활성화
   }
 });
