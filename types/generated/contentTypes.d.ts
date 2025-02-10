@@ -591,6 +591,13 @@ export interface ApiPortfolioPortfolio extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    title_en_translate: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

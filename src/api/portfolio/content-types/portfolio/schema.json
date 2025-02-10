@@ -80,6 +80,15 @@
         "event"
       ],
       "default": "pubGov"
+    },
+    "title_en_translate": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "boolean",
+      "default": false
     }
   }
 }

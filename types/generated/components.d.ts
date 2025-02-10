@@ -25,6 +25,7 @@ export interface SharedOutline extends Struct.ComponentSchema {
     organizer: Schema.Attribute.String;
     startDate: Schema.Attribute.String &
       Schema.Attribute.DefaultTo<'ex) YYYY or YYYY-MM or YYYY-MM-DD'>;
+    target: Schema.Attribute.String;
     topics: Schema.Attribute.Component<'shared.topics', true>;
   };
 }

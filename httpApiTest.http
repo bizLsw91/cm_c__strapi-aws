@@ -29,12 +29,34 @@ GET {{domain}}/api/portfolios?pLevel=3
 ### get portfolios en
 GET {{domain}}/api/portfolios?locale=en
 ### post portfolio
-POST {{domain}}/api/auth/local
+POST {{domain}}/api/portfolios?locale=en
 Content-Type: application/json
 
 {
-  "identifier": "sp91lsu@gmail.com",
-  "password": "password123"
+  "data": {
+    "year": 2023,
+    "category": "pubGov",
+    "title": "wef",
+    "images": [
+      729,
+      720,
+      454,
+      455
+    ],
+    "outline": {
+      "dateText": "efef ~ wfgweg",
+      "startDate": "2023",
+      "endDate": "2024",
+      "topics": [
+        {
+          "content": "zxcv"
+        },
+        {
+          "content": "qwer"
+        }
+      ]
+    }
+  }
 }
 
 ### post folder
