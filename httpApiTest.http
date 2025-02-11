@@ -27,7 +27,7 @@ GET {{domain}}/api/users?filters[email][$eq]=sp91lsu@gmail.com
 ### get portfolios
 GET {{domain}}/api/portfolios?pLevel=3
 ### get portfolios en
-GET {{domain}}/api/portfolios?locale=en
+GET {{domain}}/api/portfolios
 ### post portfolio
 POST {{domain}}/api/portfolios?locale=en
 Content-Type: application/json
