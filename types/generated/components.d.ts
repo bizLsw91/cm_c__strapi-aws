@@ -19,13 +19,9 @@ export interface SharedOutline extends Struct.ComponentSchema {
   };
   attributes: {
     dateText: Schema.Attribute.String;
-    endDate: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'ex) YYYY or YYYY-MM or YYYY-MM-DD'>;
     location: Schema.Attribute.String;
     organizer: Schema.Attribute.String;
-    startDate: Schema.Attribute.String &
-      Schema.Attribute.DefaultTo<'ex) YYYY or YYYY-MM or YYYY-MM-DD'>;
-    target: Schema.Attribute.String;
+    target: Schema.Attribute.Text;
     topics: Schema.Attribute.Component<'shared.topics', true>;
   };
 }
@@ -88,7 +84,7 @@ export interface SharedTopics extends Struct.ComponentSchema {
     displayName: 'topics';
   };
   attributes: {
-    content: Schema.Attribute.String;
+    content: Schema.Attribute.Text;
   };
 }
 

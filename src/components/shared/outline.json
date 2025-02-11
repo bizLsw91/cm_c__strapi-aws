@@ -21,7 +21,7 @@
       "component": "shared.topics"
     },
     "target": {
-      "type": "string"
+      "type": "text"
     }
   }
 }
