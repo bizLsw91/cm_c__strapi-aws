@@ -7,7 +7,7 @@ export default [
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          "connect-src": ["'self'", "https://proxy-event.ckeditor.com"],
+          "connect-src": ["https://api.github.com", "https://proxy-event.ckeditor.com"],
           "img-src": [
             "'self'",
             "data:",
