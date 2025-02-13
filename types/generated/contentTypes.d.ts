@@ -563,7 +563,7 @@ export interface ApiNoticeNotice extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    admin_user: Schema.Attribute.Relation<'oneToOne', 'admin::user'>;
+    author: Schema.Attribute.Relation<'oneToOne', 'admin::user'>;
     category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<

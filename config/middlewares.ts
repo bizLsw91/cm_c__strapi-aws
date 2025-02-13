@@ -13,7 +13,7 @@ export default [
             "data:",
             "blob:",
             "storage.googleapis.com",
-            "https://culturemarketing.co.kr",
+            "http://culturemarketing.co.kr",
             "dl.airtable.com",
           ],
           "media-src": [
@@ -31,7 +31,7 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['http://www.culturemarketing.co.kr','https://www.culturemarketing.co.kr','http://localhost:8598','http://127.0.0.1:8598', 'https://cmc-renewal.vercel.app', 'https://storage.googleapis.com'],
+      origin: ['http://www.culturemarketing.co.kr','http://localhost:8598','http://127.0.0.1:8598', 'https://cmc-renewal.vercel.app', 'https://storage.googleapis.com'],
       credentials: true  // ✅ 쿠키 전송 허용
     },
   },
