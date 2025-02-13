@@ -13,6 +13,7 @@ export default [
             "data:",
             "blob:",
             "storage.googleapis.com",
+            "https://culturemarketing.co.kr",
             "dl.airtable.com",
           ],
           "media-src": [

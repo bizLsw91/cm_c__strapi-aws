@@ -555,7 +555,7 @@ export interface ApiNoticeNotice extends Struct.CollectionTypeSchema {
     singularName: 'notice';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   pluginOptions: {
     i18n: {
