@@ -24,7 +24,7 @@ export default [
             "http://culturemarketing.co.kr",
             "dl.airtable.com",
           ],
-          upgradeInsecureRequests: false,
+          upgradeInsecureRequests: null,
         },
       },
     },
