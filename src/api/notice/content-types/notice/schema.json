@@ -24,7 +24,7 @@
       },
       "type": "string"
     },
-    "admin_user": {
+    "author": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "admin::user"
