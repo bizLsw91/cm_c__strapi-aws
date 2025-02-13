@@ -7,15 +7,15 @@ export default [
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          "connect-src": ["'self'", "https://api.github.com","https://", "http://","https://proxy-event.ckeditor.com"],
+          "connect-src": ["'self'", "https://api.github.com","https://proxy-event.ckeditor.com"],
+          'script-src': ["'self'", "https://cdn.ckeditor.com"],
           "img-src": [
             "'self'",
             "data:",
-            "blob:",
-            "storage.googleapis.com",
-            "http://culturemarketing.co.kr",
-            "dl.airtable.com",
+            "*",
           ],
+          'frame-src': ["'self'", "*"],
+          'style-src': ["'self'", "'unsafe-inline'"],
           "media-src": [
             "'self'",
             "data:",
@@ -24,8 +24,7 @@ export default [
             "http://culturemarketing.co.kr",
             "dl.airtable.com",
           ],
-          'script-src': ["'self'", "https://cdn.ckeditor.com"],
-          upgradeInsecureRequests: null,
+          upgradeInsecureRequests: false,
         },
       },
     },
