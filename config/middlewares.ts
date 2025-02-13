@@ -7,7 +7,7 @@ export default [
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          "connect-src": ["'self'", "https:","http:","https://proxy-event.ckeditor.com"],
+          "connect-src": ["https://proxy-event.ckeditor.com"],
           "img-src": [
             "'self'",
             "data:",
@@ -24,7 +24,7 @@ export default [
             "http://culturemarketing.co.kr",
             "dl.airtable.com",
           ],
-          'script-src': ["'self'", "https://cdn.ckeditor.com"],
+          'script-src': ["https://cdn.ckeditor.com"],
           upgradeInsecureRequests: null,
         },
       },
