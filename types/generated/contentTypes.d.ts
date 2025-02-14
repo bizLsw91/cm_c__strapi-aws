@@ -549,6 +549,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
 export interface ApiNoticeEnNoticeEn extends Struct.CollectionTypeSchema {
   collectionName: 'notices_en';
   info: {
+    description: '';
     displayName: 'Notice_en';
     pluralName: 'notices-en';
     singularName: 'notice-en';
@@ -559,6 +560,10 @@ export interface ApiNoticeEnNoticeEn extends Struct.CollectionTypeSchema {
   attributes: {
     author: Schema.Attribute.String;
     category: Schema.Attribute.String;
+    category_list_only_can_view: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::category.category'
+    >;
     content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -599,6 +604,10 @@ export interface ApiNoticeNotice extends Struct.CollectionTypeSchema {
   attributes: {
     author: Schema.Attribute.String;
     category: Schema.Attribute.String;
+    category_list_only_can_view: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::category.category'
+    >;
     content: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',

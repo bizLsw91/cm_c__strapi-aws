@@ -4,7 +4,8 @@
   "info": {
     "singularName": "notice-en",
     "pluralName": "notices-en",
-    "displayName": "Notice_en"
+    "displayName": "Notice_en",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -33,6 +34,11 @@
     },
     "author": {
       "type": "string"
+    },
+    "category_list_only_can_view": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
     }
   }
 }

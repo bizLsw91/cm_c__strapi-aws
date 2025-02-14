@@ -40,6 +40,11 @@
     "author": {
       "pluginOptions": {},
       "type": "string"
+    },
+    "category_list_only_can_view": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::category.category"
     }
   }
 }

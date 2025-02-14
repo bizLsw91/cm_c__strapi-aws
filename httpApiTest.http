@@ -95,7 +95,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxN
 ### post notice
 POST {{domain}}/api/notices
 Content-Type: application/json
-Authorization: Bearer {{token}}
+Authorization: Bearer {{notice_token}}
 
 {
   "data": {
