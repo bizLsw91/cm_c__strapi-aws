@@ -57,8 +57,8 @@ export default factories.createCoreController('api::notice.notice'
                     ]
                 }
             }
-            // console.log("baseFilters = ", baseFilters);
-            // console.log("categoryFilter = ", categoryFilter);
+            console.log("baseFilters = ", JSON.stringify(baseFilters));
+            console.log("categoryFilter = ", JSON.stringify(categoryFilter));
 
             const { results, pagination } = await strapi.service('api::notice.notice').find(expandedQuery)
 
