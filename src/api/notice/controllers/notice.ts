@@ -11,9 +11,9 @@ export default factories.createCoreController('api::notice.notice'
 
             let categories, cateNameList, categoryFilter
 
-            // 공지사항
+            // 공지사항 (채용관련 아닌것. Category 란 입력안된것, 카테고리 코드에 추가 안된것. 포함.)
             if (rcCode === '') {
-                const codePrefix = 'notice'
+                const codePrefix = 'recruit'
                 categories = await strapi.entityService.findMany(
                     'api::category.category',
                     {
@@ -25,12 +25,7 @@ export default factories.createCoreController('api::notice.notice'
                 )
                 cateNameList = categories.map(c => c.name)
                 categoryFilter =
-                    {
-                        $or: [
-                            {category: {$null:true}},
-                            {category: {$in: cateNameList }}
-                        ]
-                    }
+                    {category: {$notIn: cateNameList }}
             // 채용공고
             } else if (rcCode === 'recruit-1' || rcCode === 'recruit-2') {
                 categories = await strapi.entityService.findMany(
@@ -53,8 +48,12 @@ export default factories.createCoreController('api::notice.notice'
             const expandedQuery = {
                 ...sanitizedQuery,
                 filters: {
-                    ...baseFilters,
-                    ...categoryFilter
+                    $and: [
+                        {...baseFilters},
+                        {...categoryFilter}
+                    ]
+
+
                 }
             }
 
