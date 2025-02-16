@@ -24,7 +24,7 @@
         }
       }
     },
-    "slug": {
+    "code": {
       "type": "uid"
     },
     "description": {
