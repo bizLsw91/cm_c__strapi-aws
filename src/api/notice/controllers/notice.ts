@@ -8,7 +8,6 @@ export default factories.createCoreController('api::notice.notice'
             // 1. 쿼리 파라미터 파싱
             const { recruitCode } = ctx.query
             const rcCode: string = recruitCode ? recruitCode as string : ''
-            console.log("rcCode = ", rcCode);
             let categories, cateNameList, categoryFilter
 
             // 공지사항 (채용관련 아닌것. Category 란 입력안된것, 카테고리 코드에 추가 안된것. 포함.)
@@ -58,8 +57,8 @@ export default factories.createCoreController('api::notice.notice'
                     ]
                 }
             }
-            console.log("baseFilters = ", baseFilters);
-            console.log("categoryFilter = ", categoryFilter);
+            // console.log("baseFilters = ", baseFilters);
+            // console.log("categoryFilter = ", categoryFilter);
 
             const { results, pagination } = await strapi.service('api::notice.notice').find(expandedQuery)
 
