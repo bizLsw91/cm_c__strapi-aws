@@ -5,10 +5,12 @@ import { factories } from '@strapi/strapi'
 export default factories.createCoreController('api::notice.notice'
     ,({ strapi }) =>  ({
         async find(ctx) {
+            console.log('custom login IN')
             // 1. 쿼리 파라미터 파싱
             const { recruitCode } = ctx.query
             const rcCode: string = recruitCode ? recruitCode as string : ''
             let categories, cateNameList, categoryFilter
+            console.log("rcCode = ", rcCode);
 
             // 공지사항 (채용관련 아닌것. Category 란 입력안된것, 카테고리 코드에 추가 안된것. 포함.)
             if (rcCode === '') {
@@ -57,6 +59,8 @@ export default factories.createCoreController('api::notice.notice'
                     ]
                 }
             }
+            console.log("baseFilters = ", baseFilters);
+            console.log("categoryFilter = ", categoryFilter);
             console.log("baseFilters = ", JSON.stringify(baseFilters));
             console.log("categoryFilter = ", JSON.stringify(categoryFilter));
 
