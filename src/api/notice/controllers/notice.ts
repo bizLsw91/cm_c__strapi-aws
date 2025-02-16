@@ -48,15 +48,27 @@ export default factories.createCoreController('api::notice.notice'
 
             // 4. 공지사항 필터링 조회
             const sanitizedQuery = await this.sanitizeQuery(ctx);
-            const baseFilters = sanitizedQuery.filters as Record<string, unknown> | {};
+            console.log("sanitizedQuery = ", sanitizedQuery);
+            const baseFilters = sanitizedQuery.filters ? sanitizedQuery.filters as Record<string, unknown> : {};
 
-            const expandedQuery = {
-                ...sanitizedQuery,
-                filters: {
+            let filter = {}
+            if (Object.keys(baseFilters).length==0) {
+                filter = {
+                    ...categoryFilter
+                }
+            } else {
+                filter = {
                     $and: [
                         {...baseFilters},
                         {...categoryFilter}
                     ]
+                }
+            }
+
+            const expandedQuery = {
+                ...sanitizedQuery,
+                filters: {
+                    ...filter
                 }
             }
             console.log("baseFilters = ", baseFilters);
