@@ -558,7 +558,7 @@ export interface ApiInquiryInquiry extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    budget: Schema.Attribute.Integer;
+    budget: Schema.Attribute.String;
     company_name: Schema.Attribute.String;
     contact: Schema.Attribute.String;
     content: Schema.Attribute.Text & Schema.Attribute.Required;

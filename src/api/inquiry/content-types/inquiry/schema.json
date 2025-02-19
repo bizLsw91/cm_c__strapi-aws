@@ -50,12 +50,12 @@
     "company_name": {
       "type": "string"
     },
-    "budget": {
-      "type": "integer"
-    },
     "content": {
       "type": "text",
       "required": true
+    },
+    "budget": {
+      "type": "string"
     }
   }
 }
