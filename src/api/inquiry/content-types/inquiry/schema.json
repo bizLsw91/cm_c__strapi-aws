@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "inquiries",
+  "info": {
+    "singularName": "inquiry",
+    "pluralName": "inquiries",
+    "displayName": "Inquiry",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "full_name": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string"
+    },
+    "contact": {
+      "type": "string"
+    },
+    "lang": {
+      "type": "enumeration",
+      "enum": [
+        "ko",
+        "en"
+      ],
+      "required": true
+    },
+    "event_name": {
+      "type": "string"
+    },
+    "host_organization": {
+      "type": "string",
+      "required": true
+    },
+    "period": {
+      "type": "string",
+      "required": true
+    },
+    "venue": {
+      "type": "string"
+    },
+    "expected_participants": {
+      "type": "integer"
+    },
+    "company_name": {
+      "type": "string"
+    },
+    "budget": {
+      "type": "integer"
+    },
+    "content": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

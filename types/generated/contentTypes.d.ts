@@ -546,6 +546,47 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiInquiryInquiry extends Struct.CollectionTypeSchema {
+  collectionName: 'inquiries';
+  info: {
+    description: '';
+    displayName: 'Inquiry';
+    pluralName: 'inquiries';
+    singularName: 'inquiry';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    budget: Schema.Attribute.Integer;
+    company_name: Schema.Attribute.String;
+    contact: Schema.Attribute.String;
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String;
+    event_name: Schema.Attribute.String;
+    expected_participants: Schema.Attribute.Integer;
+    full_name: Schema.Attribute.String & Schema.Attribute.Required;
+    host_organization: Schema.Attribute.String & Schema.Attribute.Required;
+    lang: Schema.Attribute.Enumeration<['ko', 'en']> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::inquiry.inquiry'
+    > &
+      Schema.Attribute.Private;
+    period: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    venue: Schema.Attribute.String;
+  };
+}
+
 export interface ApiNoticeEnNoticeEn extends Struct.CollectionTypeSchema {
   collectionName: 'notices_en';
   info: {
@@ -1253,6 +1294,7 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
+      'api::inquiry.inquiry': ApiInquiryInquiry;
       'api::notice-en.notice-en': ApiNoticeEnNoticeEn;
       'api::notice.notice': ApiNoticeNotice;
       'api::portfolio.portfolio': ApiPortfolioPortfolio;
