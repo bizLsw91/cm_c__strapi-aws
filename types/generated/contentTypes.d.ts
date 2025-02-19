@@ -1232,6 +1232,11 @@ export interface PluginUsersPermissionsUser
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
     confirmed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    contact: Schema.Attribute.String &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 16;
+        minLength: 9;
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1253,11 +1258,6 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.Private &
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
-      }>;
-    phone_num: Schema.Attribute.String &
-      Schema.Attribute.SetMinMaxLength<{
-        maxLength: 16;
-        minLength: 9;
       }>;
     provider: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;

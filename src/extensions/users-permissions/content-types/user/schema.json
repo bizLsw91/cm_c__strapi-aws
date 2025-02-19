@@ -65,7 +65,7 @@
       "inversedBy": "users",
       "configurable": false
     },
-    "phone_num": {
+    "contact": {
       "type": "string",
       "required": false,
       "maxLength": 16,
