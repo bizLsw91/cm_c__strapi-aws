@@ -558,6 +558,13 @@ export interface ApiInquiryInquiry extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
+    answer: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     budget: Schema.Attribute.String;
     company_name: Schema.Attribute.String;
     contact: Schema.Attribute.String;
@@ -570,6 +577,10 @@ export interface ApiInquiryInquiry extends Struct.CollectionTypeSchema {
     expected_participants: Schema.Attribute.Integer;
     full_name: Schema.Attribute.String & Schema.Attribute.Required;
     host_organization: Schema.Attribute.String & Schema.Attribute.Required;
+    inquiry_status: Schema.Attribute.Enumeration<
+      ['n01.not-yet-read', 'n02.has-been-read', 'n03.answered']
+    > &
+      Schema.Attribute.DefaultTo<'n01.not-yet-read'>;
     lang: Schema.Attribute.Enumeration<['ko', 'en']> &
       Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -769,6 +780,40 @@ export interface ApiPortfolioPortfolio extends Struct.CollectionTypeSchema {
         number
       > &
       Schema.Attribute.DefaultTo<2010>;
+  };
+}
+
+export interface ApiStatusStatus extends Struct.SingleTypeSchema {
+  collectionName: 'statuses';
+  info: {
+    displayName: 'Status';
+    pluralName: 'statuses';
+    singularName: 'status';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    InquiryStatus: Schema.Attribute.Component<'shared.status', true> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::status.status'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
   };
 }
 
@@ -1298,6 +1343,7 @@ declare module '@strapi/strapi' {
       'api::notice-en.notice-en': ApiNoticeEnNoticeEn;
       'api::notice.notice': ApiNoticeNotice;
       'api::portfolio.portfolio': ApiPortfolioPortfolio;
+      'api::status.status': ApiStatusStatus;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;

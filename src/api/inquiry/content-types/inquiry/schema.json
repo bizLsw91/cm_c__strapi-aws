@@ -56,6 +56,23 @@
     },
     "budget": {
       "type": "string"
+    },
+    "answer": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
+    },
+    "inquiry_status": {
+      "type": "enumeration",
+      "enum": [
+        "n01.not-yet-read",
+        "n02.has-been-read",
+        "n03.answered"
+      ],
+      "default": "n01.not-yet-read",
+      "required": false
     }
   }
 }

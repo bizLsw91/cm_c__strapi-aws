@@ -87,6 +87,17 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedStatus extends Struct.ComponentSchema {
+  collectionName: 'components_shared_statuses';
+  info: {
+    description: '';
+    displayName: 'Status';
+  };
+  attributes: {
+    status_name: Schema.Attribute.String;
+  };
+}
+
 export interface SharedTopics extends Struct.ComponentSchema {
   collectionName: 'components_shared_topics';
   info: {
@@ -108,6 +119,7 @@ declare module '@strapi/strapi' {
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'shared.status': SharedStatus;
       'shared.topics': SharedTopics;
     }
   }
