@@ -1311,6 +1311,8 @@ export interface PluginUsersPermissionsUser
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    terms_privacy_agree: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
     today_login: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

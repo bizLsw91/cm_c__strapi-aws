@@ -32,7 +32,7 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['http://www.culturemarketing.co.kr','http://localhost:8598','http://127.0.0.1:8598', 'https://cmc-renewal.vercel.app', 'https://storage.googleapis.com', 'https://www.google.com'],
+      origin: ['https://www.culturemarketing.co.kr','http://localhost:8598','http://127.0.0.1:8598', 'https://cmc-renewal.vercel.app', 'https://storage.googleapis.com', 'https://www.google.com'],
       credentials: true  // ✅ 쿠키 전송 허용
     },
   },

@@ -82,6 +82,10 @@
     },
     "nationality": {
       "type": "string"
+    },
+    "terms_privacy_agree": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
