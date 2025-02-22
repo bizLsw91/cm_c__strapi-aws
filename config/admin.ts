@@ -19,5 +19,6 @@ export default ({ env }) => ({
   },
   preview: {
     enabled: false, // false로 설정 시 Preview 기능 비활성화
-  }
+  },
+  url: '/dashboard',
 });
