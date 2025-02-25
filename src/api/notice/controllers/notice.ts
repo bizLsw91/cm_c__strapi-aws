@@ -5,7 +5,6 @@ import { factories } from '@strapi/strapi'
 export default factories.createCoreController('api::notice.notice'
     ,({ strapi }) =>  ({
         async find(ctx) {
-            console.log('custom login IN')
             // 1. 쿼리 파라미터 파싱
             const { recruitCode } = ctx.query
             const rcCode: string = recruitCode ? recruitCode as string : ''
