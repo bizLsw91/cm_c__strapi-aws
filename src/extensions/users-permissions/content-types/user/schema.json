@@ -86,6 +86,9 @@
     "terms_privacy_agree": {
       "type": "boolean",
       "default": false
+    },
+    "full_name": {
+      "type": "string"
     }
   }
 }
