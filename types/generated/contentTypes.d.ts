@@ -1278,6 +1278,7 @@ export interface PluginUsersPermissionsUser
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
     confirmed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     contact: Schema.Attribute.String &
+      Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 16;
         minLength: 9;
@@ -1290,8 +1291,11 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
-    full_name: Schema.Attribute.String;
+    full_name: Schema.Attribute.String & Schema.Attribute.Required;
     ip: Schema.Attribute.String;
+    lang: Schema.Attribute.Enumeration<['ko', 'en']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'ko'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
