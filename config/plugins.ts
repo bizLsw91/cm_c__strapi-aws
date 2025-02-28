@@ -3,16 +3,17 @@ export default ({ env }) => ({
     'users-permissions': {
         config: {
             jwt: {
-                expiresIn: '7d',
+                expiresIn: '30d',
             },
             register: {
                 allowedFields: [ // ✅ 커스텀 필드 추가
                     "full_name",
-                    "phone_num",
+                    "contact",
                     "today_login",
                     "login_ip",
                     "ip",
                     "nationality",
+                    "lang",
                 ],
             },
         },

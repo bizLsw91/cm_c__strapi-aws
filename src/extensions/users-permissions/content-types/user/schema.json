@@ -67,9 +67,7 @@
     },
     "contact": {
       "type": "string",
-      "required": true,
-      "maxLength": 16,
-      "minLength": 9
+      "required": true
     },
     "today_login": {
       "type": "datetime"
