@@ -7,12 +7,13 @@ export default [
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          "connect-src": ["'self'", "https://api.github.com","https://proxy-event.ckeditor.com"],
+          "connect-src": ["'self'", "https://api.github.com","https://proxy-event.ckeditor.com",'https:', 'https://analytics.strapi.io'],
           'script-src': ["'self'", "https://cdn.ckeditor.com"],
           "img-src": [
             "'self'",
             "data:",
             "*",
+            'https://analytics.strapi.io',
           ],
           'frame-src': ["'self'", "*"],
           'style-src': ["'self'", "'unsafe-inline'"],
