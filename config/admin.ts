@@ -1,6 +1,12 @@
 export default ({ env }) => ({
   auth: {
     secret: env('ADMIN_JWT_SECRET'),
+    options: {
+      expiresIn: '1d', // 세션 만료 시간을 1일로 설정
+    },
+  },
+  autoReload: {
+    enabled: false,
   },
   apiToken: {
     salt: env('API_TOKEN_SALT'),
