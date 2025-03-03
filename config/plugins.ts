@@ -49,15 +49,7 @@ export default ({ env }) => ({
                 }
             }
         }
-    },
-    'strapi-v5-plugin-populate-deep': {
-        enabled: true,
-        config: {
-            defaultDepth: 3,
-            maxDepth: 5,
-            ignoreFields: ['createdBy', 'updatedBy']
-        }
-    },
+    }
 
     // ...
 });
