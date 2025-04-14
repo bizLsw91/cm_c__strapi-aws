@@ -59,6 +59,7 @@ $RECYCLE.BIN/
 *.swm
 *.out
 *.pid
+*.pem
 
 
 ############################
@@ -122,6 +123,7 @@ coverage
 ############################
 
 .env
+.env.production
 license.txt
 exports
 .strapi
@@ -129,3 +131,5 @@ dist
 build
 .strapi-updater.json
 .strapi-cloud.json
+
+.github/workflows2
