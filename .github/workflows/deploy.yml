@@ -50,6 +50,27 @@ jobs:
       - name: Build Strapi admin
         run: npm run build
 
+
+      - name: Get GitHub Action Runner Public IP
+        id: ip
+        uses: haythem/public-ip@v1.3
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_DEFAULT_REGION }}
+
+      - name: Add GitHub Action IP to Security Group
+        run: |
+          aws ec2 authorize-security-group-ingress \
+            --group-id ${{ vars.AWS_SG_ID }} \
+            --protocol tcp \
+            --port 22 \
+            --cidr ${{ steps.ip.outputs.ipv4 }}/32 || echo "The IP already exists in the security group"
+          
+
       - name: Prepare deploy package
         run: |
           mkdir deploy
