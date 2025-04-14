@@ -41,7 +41,7 @@ jobs:
           echo "DATABASE_PASSWORD=${{ secrets.DATABASE_PASSWORD }}" >> .env
           echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env
           echo "SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}" >> .env
-          echo "FIREBASE_SERVICE_ACCOUNT=${{ secrets.FIREBASE_SERVICE_ACCOUNT }}" >> .env
+          echo "FIREBASE_SERVICE_ACCOUNT=${{ secrets.FIREBASE_SERVICE_ACCOUNT }}" | sed 's/\\n/\n/g' >> .env
           cat .env
 
       - name: Install dependencies
