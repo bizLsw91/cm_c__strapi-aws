@@ -94,8 +94,13 @@ jobs:
           key: ${{ secrets.EC2_PEM }}          # Secret에 저장된 프라이빗 키 참조
           script: |
             cd /home/ubuntu/CMCompany/cm_c__strapi-aws
-            rm -rf src config dist public node_modules package*.json types .env
+            pm2 save || true
             tar -xzf deploy.tar.gz
             rm deploy.tar.gz
             npm install --omit=dev
-            pm2 restart cm_c__strapi-aws || pm2 start server.js --name "cm_c__strapi-aws"
+            pm2 reload cm_c__strapi-aws --update-env || echo "Reload failed"
+
+      - name: Rollback on failure (optional)
+        if: failure()
+        run: |
+          pm2 resurrect || echo "Rollback failed"
