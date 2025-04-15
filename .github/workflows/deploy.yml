@@ -50,6 +50,11 @@ jobs:
       - name: Build Strapi admin
         run: npm run build
 
+      - name: Prepare deploy package
+        run: |
+          mkdir deploy
+          cp -r src config dist public package*.json types .env deploy/
+          tar -czf deploy.tar.gz -C deploy .
 
       - name: Get GitHub Action Runner Public IP
         id: ip
@@ -69,13 +74,6 @@ jobs:
             --protocol tcp \
             --port 22 \
             --cidr ${{ steps.ip.outputs.ipv4 }}/32 || echo "The IP already exists in the security group"
-          
-
-      - name: Prepare deploy package
-        run: |
-          mkdir deploy
-          cp -r src config dist public package*.json types .env deploy/
-          tar -czf deploy.tar.gz -C deploy .
 
       - name: Upload build files to EC2
         uses: appleboy/scp-action@v0.1.7
@@ -86,6 +84,14 @@ jobs:
           source: "deploy.tar.gz"
           target: "/home/ubuntu/CMCompany/cm_c__strapi-aws"
 
+      - name: Remove GitHub Action IP from Security Group
+        run: |
+          aws ec2 revoke-security-group-ingress \
+            --group-id ${{ vars.AWS_SG_ID }} \
+            --protocol tcp \
+            --port 22 \
+            --cidr ${{ steps.ip.outputs.ipv4 }}/32 || echo "Failed to remove IP from security group."
+
       - name: Deploy on EC2
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -95,10 +101,12 @@ jobs:
           script: |
             cd /home/ubuntu/CMCompany/cm_c__strapi-aws
             pm2 save || true
+            pm2 stop all || true
+            rm -rf src config dist public node_modules package*.json types .env
             tar -xzf deploy.tar.gz
             rm deploy.tar.gz
             npm install --omit=dev
-            pm2 reload cm_c__strapi-aws --update-env || echo "Reload failed"
+            pm2 start server.js --name "cm_c__strapi-aws"
 
       - name: Rollback on failure (optional)
         if: failure()
