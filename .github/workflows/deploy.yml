@@ -106,6 +106,7 @@ jobs:
             tar -xzf deploy.tar.gz
             rm deploy.tar.gz
             npm install --omit=dev
+            npm install --platform=linux sharp
             pm2 start server.js --name "cm_c__strapi-aws"
 
       - name: Rollback on failure (optional)
