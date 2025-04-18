@@ -84,14 +84,6 @@ jobs:
           source: "deploy.tar.gz"
           target: "/home/ubuntu/CMCompany/cm_c__strapi-aws"
 
-      - name: Remove GitHub Action IP from Security Group
-        run: |
-          aws ec2 revoke-security-group-ingress \
-            --group-id ${{ vars.AWS_SG_ID }} \
-            --protocol tcp \
-            --port 22 \
-            --cidr ${{ steps.ip.outputs.ipv4 }}/32 || echo "Failed to remove IP from security group."
-
       - name: Deploy on EC2
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -108,6 +100,14 @@ jobs:
             npm install --omit=dev
             npm install --platform=linux sharp
             pm2 start server.js --name "cm_c__strapi-aws"
+
+      - name: Remove GitHub Action IP from Security Group
+        run: |
+          aws ec2 revoke-security-group-ingress \
+            --group-id ${{ vars.AWS_SG_ID }} \
+            --protocol tcp \
+            --port 22 \
+            --cidr ${{ steps.ip.outputs.ipv4 }}/32 || echo "Failed to remove IP from security group."
 
       - name: Rollback on failure (optional)
         if: failure()
