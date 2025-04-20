@@ -4,7 +4,8 @@
   "info": {
     "singularName": "category-en",
     "pluralName": "category-ens",
-    "displayName": "Category_en"
+    "displayName": "Category_en",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -18,7 +19,7 @@
       "type": "uid"
     },
     "description": {
-      "type": "string"
+      "type": "text"
     }
   }
 }

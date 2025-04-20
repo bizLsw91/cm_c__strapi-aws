@@ -26,8 +26,8 @@ export default factories.createCoreController('api::notice.notice'
                 cateNameList = categories.map(c => c.name)
                 categoryFilter = {
                     $or: [
-                        {category: {$null:true}},
-                        {category: {$notIn: cateNameList }}
+                        {category_ko: {$null:true}},
+                        {category_ko: { name: {$notIn: cateNameList }}}
                     ]
                 }
             // 채용공고
@@ -42,7 +42,7 @@ export default factories.createCoreController('api::notice.notice'
                     }
                 )
                 cateNameList = categories.map(c => c.name)
-                categoryFilter = {category:{ $in: cateNameList }}
+                categoryFilter = {category_ko:{ name: {$in: cateNameList }}}
             }
 
             // 4. 공지사항 필터링 조회
@@ -70,8 +70,6 @@ export default factories.createCoreController('api::notice.notice'
                     ...filter
                 }
             }
-            console.log("baseFilters = ", baseFilters);
-            console.log("categoryFilter = ", categoryFilter);
             console.log("baseFilters = ", JSON.stringify(baseFilters));
             console.log("categoryFilter = ", JSON.stringify(categoryFilter));
 

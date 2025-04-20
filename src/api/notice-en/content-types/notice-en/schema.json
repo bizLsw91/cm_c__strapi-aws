@@ -22,9 +22,6 @@
       },
       "customField": "plugin::ckeditor5.CKEditor"
     },
-    "category": {
-      "type": "string"
-    },
     "ip": {
       "type": "string"
     },

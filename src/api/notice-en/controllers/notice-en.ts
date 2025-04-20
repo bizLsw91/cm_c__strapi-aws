@@ -17,7 +17,7 @@ export default factories.createCoreController('api::notice-en.notice-en',
             if (rcCode === '') {
                 const codePrefix = 'recruit'
                 categories = await strapi.entityService.findMany(
-                    'api::category.category',
+                    'api::category-en.category-en',
                     {
                         filters: {
                             code: { $startsWith: codePrefix }
@@ -28,14 +28,14 @@ export default factories.createCoreController('api::notice-en.notice-en',
                 cateNameList = categories.map(c => c.name)
                 categoryFilter = {
                     $or: [
-                        {category: {$null:true}},
-                        {category: {$notIn: cateNameList }}
+                        {category_en: {$null:true}},
+                        {category_en: { name: {$notIn: cateNameList }}}
                     ]
                 }
                 // 채용공고
             } else if (rcCode === 'recruit-1' || rcCode === 'recruit-2') {
                 categories = await strapi.entityService.findMany(
-                    'api::category.category',
+                    'api::category-en.category-en',
                     {
                         filters: {
                             code: { $eq: rcCode }
@@ -44,7 +44,7 @@ export default factories.createCoreController('api::notice-en.notice-en',
                     }
                 )
                 cateNameList = categories.map(c => c.name)
-                categoryFilter = {category:{ $in: cateNameList }}
+                categoryFilter = {category_en:{ name: {$in: cateNameList }}}
             }
 
             // 4. 공지사항 필터링 조회

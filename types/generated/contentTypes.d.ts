@@ -472,6 +472,7 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
 export interface ApiCategoryEnCategoryEn extends Struct.CollectionTypeSchema {
   collectionName: 'category_ens';
   info: {
+    description: '';
     displayName: 'Category_en';
     pluralName: 'category-ens';
     singularName: 'category-en';
@@ -484,7 +485,7 @@ export interface ApiCategoryEnCategoryEn extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -627,7 +628,6 @@ export interface ApiNoticeEnNoticeEn extends Struct.CollectionTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.String;
-    category: Schema.Attribute.String;
     category_en: Schema.Attribute.Relation<
       'oneToOne',
       'api::category-en.category-en'
@@ -671,7 +671,6 @@ export interface ApiNoticeNotice extends Struct.CollectionTypeSchema {
   };
   attributes: {
     author: Schema.Attribute.String;
-    category: Schema.Attribute.String;
     category_ko: Schema.Attribute.Relation<
       'oneToOne',
       'api::category.category'
