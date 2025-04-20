@@ -469,6 +469,36 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCategoryEnCategoryEn extends Struct.CollectionTypeSchema {
+  collectionName: 'category_ens';
+  info: {
+    displayName: 'Category_en';
+    pluralName: 'category-ens';
+    singularName: 'category-en';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    code: Schema.Attribute.UID;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category-en.category-en'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -612,7 +642,7 @@ export interface ApiNoticeEnNoticeEn extends Struct.CollectionTypeSchema {
   attributes: {
     author: Schema.Attribute.String;
     category: Schema.Attribute.String;
-    category_list_only_can_view: Schema.Attribute.Relation<
+    category_en: Schema.Attribute.Relation<
       'oneToOne',
       'api::category.category'
     >;
@@ -656,7 +686,7 @@ export interface ApiNoticeNotice extends Struct.CollectionTypeSchema {
   attributes: {
     author: Schema.Attribute.String;
     category: Schema.Attribute.String;
-    category_list_only_can_view: Schema.Attribute.Relation<
+    category_ko: Schema.Attribute.Relation<
       'oneToOne',
       'api::category.category'
     >;
@@ -1339,6 +1369,7 @@ declare module '@strapi/strapi' {
       'api::about.about': ApiAboutAbout;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
+      'api::category-en.category-en': ApiCategoryEnCategoryEn;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
       'api::inquiry.inquiry': ApiInquiryInquiry;
