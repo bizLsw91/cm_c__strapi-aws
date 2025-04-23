@@ -37,7 +37,7 @@ export default ({ env }) => ({
     },
     upload: {
         config: {
-            provider: 'strapi-provider-firebase-storage',
+            provider: '@dev.w-strapi/sharp-lsw-provider-firebase-storage',
             providerOptions: {
                 serviceAccount: JSON.parse(env('FIREBASE_SERVICE_ACCOUNT')), // Firebase 서비스 계정
                 bucket: env('FIREBASE_STORAGE_BUCKET'),
