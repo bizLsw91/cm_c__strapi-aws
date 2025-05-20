@@ -798,6 +798,55 @@ export interface ApiPortfolioPortfolio extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiSampleSample extends Struct.CollectionTypeSchema {
+  collectionName: 'samples';
+  info: {
+    description: '';
+    displayName: 'Sample';
+    pluralName: 'samples';
+    singularName: 'sample';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    datetime: Schema.Attribute.DateTime;
+    editor: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+    email: Schema.Attribute.Email;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sample.sample'
+    > &
+      Schema.Attribute.Private;
+    long_text: Schema.Attribute.Text;
+    multi_media: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    number: Schema.Attribute.Integer;
+    outline: Schema.Attribute.Component<'shared.outline', true>;
+    publishedAt: Schema.Attribute.DateTime;
+    select: Schema.Attribute.Enumeration<['apple', 'banana', 'grape']>;
+    short_text: Schema.Attribute.String;
+    single_media: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiStatusStatus extends Struct.SingleTypeSchema {
   collectionName: 'statuses';
   info: {
@@ -1361,6 +1410,7 @@ declare module '@strapi/strapi' {
       'api::notice-en.notice-en': ApiNoticeEnNoticeEn;
       'api::notice.notice': ApiNoticeNotice;
       'api::portfolio.portfolio': ApiPortfolioPortfolio;
+      'api::sample.sample': ApiSampleSample;
       'api::status.status': ApiStatusStatus;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
