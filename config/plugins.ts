@@ -30,8 +30,8 @@ export default ({ env }) => ({
                 },
             },
             settings: {
-                defaultFrom: 'culturemarketing9503@gmail.com',
-                defaultReplyTo: 'culturemarketing9503@gmail.com',
+                defaultFrom: 'dev.lsw91@gmail.com',
+                defaultReplyTo: 'dev.lsw91@gmail.com',
             },
         },
     },
