@@ -473,7 +473,7 @@ export interface ApiCategoryEnCategoryEn extends Struct.CollectionTypeSchema {
   collectionName: 'category_ens';
   info: {
     description: '';
-    displayName: 'Category_en';
+    displayName: '\uCE74\uD14C\uACE0\uB9AC_\uC601\uBB38';
     pluralName: 'category-ens';
     singularName: 'category-en';
   };
@@ -504,7 +504,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
     description: 'Organize your content into categories';
-    displayName: 'Category';
+    displayName: '\uCE74\uD14C\uACE0\uB9AC';
     pluralName: 'categories';
     singularName: 'category';
   };
@@ -567,7 +567,7 @@ export interface ApiInquiryInquiry extends Struct.CollectionTypeSchema {
   collectionName: 'inquiries';
   info: {
     description: '';
-    displayName: 'Inquiry';
+    displayName: '\uBB38\uC758\uC0AC\uD56D';
     pluralName: 'inquiries';
     singularName: 'inquiry';
   };
@@ -619,7 +619,7 @@ export interface ApiNoticeEnNoticeEn extends Struct.CollectionTypeSchema {
   collectionName: 'notices_en';
   info: {
     description: '';
-    displayName: 'Notice_en';
+    displayName: '\uACF5\uC9C0\uC0AC\uD56D_\uC601\uBB38';
     pluralName: 'notices-en';
     singularName: 'notice-en';
   };
@@ -662,7 +662,7 @@ export interface ApiNoticeNotice extends Struct.CollectionTypeSchema {
   collectionName: 'notices';
   info: {
     description: '';
-    displayName: 'Notice';
+    displayName: '\uACF5\uC9C0\uC0AC\uD56D';
     pluralName: 'notices';
     singularName: 'notice';
   };
@@ -705,7 +705,7 @@ export interface ApiPortfolioPortfolio extends Struct.CollectionTypeSchema {
   collectionName: 'portfolios';
   info: {
     description: '';
-    displayName: 'Portfolio';
+    displayName: '\uD3EC\uD2B8\uD3F4\uB9AC\uC624';
     pluralName: 'portfolios';
     singularName: 'portfolio';
   };
