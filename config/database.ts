@@ -12,17 +12,7 @@ export default ({ env }) => {
         database: env('DATABASE_NAME', undefined),
         user: env('DATABASE_USERNAME', undefined),
         password: env('DATABASE_PASSWORD', undefined),
-        ssl: env.bool('DATABASE_SSL', true) && {
-          key: fs.readFileSync(path.join(rootDir, 'config/cert/client-key.pem')),
-          cert: fs.readFileSync(path.join(rootDir, 'config/cert/client-cert.pem')),
-          ca: fs.readFileSync(path.join(rootDir, 'config/cert/server-ca.pem')),
-          capath: env('DATABASE_SSL_CAPATH', undefined),
-          cipher: env('DATABASE_SSL_CIPHER', undefined),
-          rejectUnauthorized: env.bool(
-              'DATABASE_SSL_REJECT_UNAUTHORIZED',
-              true
-          ),
-        },
+        ssl: false,
       },
       pool: { min: env.int('DATABASE_POOL_MIN', 2), max: env.int('DATABASE_POOL_MAX', 10) },
     },
